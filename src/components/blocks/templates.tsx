@@ -97,7 +97,10 @@ const tools: Tool[] = [
 
 const Templates = () => {
   return (
-    <section className="w-full py-12 bg-primary rounded-b pattern-block relative">
+    <section
+      className="w-full py-12 bg-primary rounded-b pattern-block relative"
+      id="templates"
+    >
       <div className="absolute w-full h-full bg-black/60 top-0 z-0"></div>
       <div className="container px-4 mx-auto max-w-5xl z-10 relative ">
         <div className="text-left mb-12 text-white ">

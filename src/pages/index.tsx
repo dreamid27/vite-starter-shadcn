@@ -4,11 +4,11 @@ import { FAQSection } from "@/components/blocks/faq-section";
 import Templates from "@/components/blocks/templates";
 import { Footer7 } from "@/components/ui/footer-7";
 import { ReactLenis } from "lenis/react";
+import { Cta11 } from "@/components/blocks/cta";
 
 const Index = () => {
   return (
     <>
-      <ReactLenis root />
       <HeroSection />
       <Features />
       <Templates />

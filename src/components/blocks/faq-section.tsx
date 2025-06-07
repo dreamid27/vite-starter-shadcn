@@ -1,17 +1,23 @@
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-interface FAQItem {
+interface FaqItem {
   question: string;
-  answer: string | React.ReactNode;
+  answer: string;
 }
 
-export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+interface Faq1Props {
+  heading?: string;
+  items?: FaqItem[];
+}
 
-  const faqs: FAQItem[] = [
+export const FAQSection = ({
+  heading = "Frequently asked questions",
+  items = [
     {
       question: "How much does it cost to deploy an app?",
       answer:
@@ -25,68 +31,44 @@ export function FAQSection() {
       question: "Can I use my own domain?",
       answer: "Custom domains are coming soon. Stay tuned!",
     },
-  ];
-
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
+    {
+      question: "Do I need technical skills to use Sumopod?",
+      answer:
+        "No advanced technical skills are required. Our templates and guided deployment make it easy for anyone to get started.",
+    },
+    {
+      question: "What payment methods do you accept?",
+      answer:
+        "We use a trusted payment provider to process payments securely. Various payment methods are supported.",
+    },
+    {
+      question: "How long does it take to deploy an app?",
+      answer:
+        "Most templates are ready to use in just 15 seconds, so you can go live almost instantly.",
+    },
+  ],
+}: Faq1Props) => {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32 bg-background">
-      <div className="container px-4 mx-auto max-w-5xl">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Frequently Asked Questions
-            </h2>
-            <p className="max-w-[700px] text-muted-foreground md:text-xl">
-              Can't find the answer you're looking for? Reach out to our support
-              team.
-            </p>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-12 max-w-3xl space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="overflow-hidden rounded-lg border border-border bg-card"
-            >
-              <button
-                className="flex w-full items-center justify-between p-6 text-left"
-                onClick={() => toggleAccordion(index)}
-              >
-                <h3 className="text-lg font-medium">{faq.question}</h3>
-                <ChevronDown
-                  className={cn(
-                    "h-5 w-5 transition-transform duration-200",
-                    openIndex === index ? "rotate-180" : ""
-                  )}
-                />
-              </button>
-              <div
-                className={cn(
-                  "overflow-hidden transition-all duration-300 ease-in-out",
-                  openIndex === index
-                    ? "max-h-96 opacity-100"
-                    : "max-h-0 opacity-0"
-                )}
-              >
-                <div className="p-6 pt-0">
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </div>
-              </div>
-            </div>
+    <section className="py-32" id="faq">
+      <div className="container mx-auto max-w-3xl lg:max-w-5xl px-6">
+        <h1 className="mb-4 text-3xl font-semibold md:mb-11 md:text-4xl">
+          {heading}
+        </h1>
+        <Accordion type="single" collapsible>
+          {items.map((item, index) => (
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="font-semibold hover:no-underline text-xl">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-md">
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="mb-4 text-lg text-muted-foreground">Need more help?</p>
-          <Button size="lg" variant="outline">
-            Contact Support
-          </Button>
-        </div>
+        </Accordion>
       </div>
     </section>
   );
-}
+};
+
+export default FAQSection;

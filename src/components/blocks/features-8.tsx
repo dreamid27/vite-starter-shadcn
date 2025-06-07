@@ -7,7 +7,10 @@ import IllustrationBox from "@/assets/illustration-box.png";
 
 export function Features() {
   return (
-    <section className="bg-gray-50 py-16 md:py-32 dark:bg-transparent">
+    <section
+      className="bg-gray-50 py-16 md:py-32 dark:bg-transparent"
+      id="features"
+    >
       <div className="mx-auto max-w-3xl lg:max-w-5xl px-6">
         <div className="relative">
           <div className="relative z-10 grid grid-cols-6 gap-3">

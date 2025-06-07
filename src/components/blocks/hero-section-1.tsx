@@ -148,16 +148,21 @@ export function HeroSection() {
                     variant="ghost"
                     className="h-10.5 rounded-xl px-5"
                   >
-                    <Link to="#link">
-                      <span className="text-nowrap">Contact Us</span>
-                    </Link>
+                    <a 
+                      href="https://api.whatsapp.com/send/?phone=6285190052577&text=Hello%21+I+would+like+to+get+more+information+about+your+services.&type=phone_number"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-nowrap"
+                    >
+                      Contact Us
+                    </a>
                   </Button>
                 </AnimatedGroup>
               </div>
             </div>
           </div>
         </section>
-        <section className="bg-background pb-16 pt-16 md:pb-32">
+        <section className="bg-background pb-16 pt-16 md:py-32">
           <div className="group relative m-auto max-w-5xl px-6">
             <p className="lg:text-6xl md:text-4xl text-3xl">
               Sumopod lets you launch secure, production-ready apps in seconds.
@@ -171,11 +176,24 @@ export function HeroSection() {
   );
 }
 
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  e.preventDefault();
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+    // Update URL without adding to history
+    window.history.pushState(null, '', href);
+  }
+};
+
 const menuItems = [
-  { name: "Features", href: "#link" },
-  { name: "Solution", href: "#link" },
-  { name: "Pricing", href: "#link" },
-  { name: "About", href: "#link" },
+  { name: "Home", href: "#home" },
+  { name: "Features", href: "#features" },
+  { name: "Templates", href: "#templates" },
+  { name: "FAQ", href: "#faq" },
 ];
 
 const HeroHeader = () => {
@@ -202,7 +220,10 @@ const HeroHeader = () => {
               "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
           )}
         >
-          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+          <div
+            id="home"
+            className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4"
+          >
             <div className="flex w-full justify-between lg:w-auto">
               <Link
                 to="/"
@@ -228,7 +249,8 @@ const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       to={item.href}
-                      className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                      onClick={(e) => scrollToSection(e, item.href)}
+                      className="text-muted-foreground hover:text-accent-foreground block duration-150 cursor-pointer"
                     >
                       <span>{item.name}</span>
                     </Link>
@@ -244,7 +266,8 @@ const HeroHeader = () => {
                     <li key={index}>
                       <Link
                         to={item.href}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                        onClick={(e) => scrollToSection(e, item.href)}
+                        className="text-muted-foreground hover:text-accent-foreground block duration-150 cursor-pointer"
                       >
                         <span>{item.name}</span>
                       </Link>

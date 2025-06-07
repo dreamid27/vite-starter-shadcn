@@ -71,7 +71,6 @@ export const Footer7 = ({
   },
   description = "SumoPod offers seamless container and application purchasing solutions for businesses of all sizes.",
   socialLinks = defaultSocialLinks,
-  partners = defaultPartners,
   copyright = `© ${new Date().getFullYear()} KodingWorks - PT Koding Kreasi Indonesia. All rights reserved.`,
   legalLinks = [
     { name: "Terms and Conditions", href: "#" },
@@ -79,21 +78,6 @@ export const Footer7 = ({
     { name: "Cookie Policy", href: "#" },
   ],
 }: Footer7Props) => {
-  const [email, setEmail] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubscribed(true);
-      toast.success("Thank you for subscribing to our newsletter!");
-      setEmail("");
-      setTimeout(() => setIsSubscribed(false), 5000);
-    } else {
-      toast.error("Please enter a valid email address");
-    }
-  };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -102,7 +86,7 @@ export const Footer7 = ({
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-gray-900 to-gray-950 text-gray-300">
+    <footer className="relative bg-gradient-to-b bg-muted-foreground">
       <div className="absolute inset-0 bg-[url('https://tailwindui.com/img/component-images/dark-project-example-grid.png')] bg-center opacity-10" />
 
       <div className="relative container mx-auto px-4 py-12 sm:px-6 lg:px-8">

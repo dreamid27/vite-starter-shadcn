@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <TooltipProvider>
         <Toaster />
         <BrowserRouter>

@@ -11,7 +11,9 @@ type Tool = {
   tags: string[];
   price: string;
   category: string;
-  icon: string;
+  icon: string; // URL to the icon image
+  github: string;
+  website: string;
   isComingSoon: boolean;
 };
 
@@ -21,31 +23,38 @@ const tools: Tool[] = [
     name: "n8n",
     description:
       "Workflow automation tool with 200+ integrations. Similar to Zapier",
-    tags: ["automation", "integration", "workflow"],
-    price: "Rp. 150.000/month",
+    tags: ["automation", "integration"],
+    price: "Rp. 15.000/month",
     category: "Productivity",
-    icon: "⚙️",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/5/53/N8n-logo-new.svg",
+    github: "https://github.com/n8n-io/n8n",
+    website: "https://n8n.io",
     isComingSoon: false,
   },
   {
     id: 2,
-    name: "Figma",
+    name: "Activepieces",
     description:
-      "Collaborative interface design tool with real-time collaboration",
-    tags: ["design", "ui/ux", "prototyping"],
-    price: "Rp. 200.000/month",
-    category: "Design",
-    icon: "🎨",
+      "Open source workflow automation tool with hundreds of integrations. An alternative to Zapier.",
+    tags: ["Automation", "Integration", "Open Source"],
+    price: "Rp 85.000/month",
+    category: "Productivity",
+    icon: "https://avatars.githubusercontent.com/u/99494700?s=280&v=4",
+    github: "https://github.com/activepieces/activepieces",
+    website: "https://www.activepieces.com",
     isComingSoon: false,
   },
   {
     id: 3,
-    name: "Notion",
-    description: "All-in-one workspace for notes, docs, and project management",
-    tags: ["productivity", "docs", "collaboration"],
-    price: "Rp. 100.000/month",
-    category: "Productivity",
-    icon: "📝",
+    name: "WAHA Plus Cloud",
+    description:
+      "Self-hosted WhatsApp HTTP API (REST API) for unlimited sessions, multimedia messages, and built-in security, enabling seamless WhatsApp automation.",
+    tags: ["WhatsApp API", "Messaging", "Self-hosted"],
+    price: "Rp. 20.000/month",
+    category: "Communication",
+    icon: "https://waha.devlike.pro/images/logo.svg",
+    github: "https://github.com/devlikepro/WAHA",
+    website: "https://waha.devlike.pro",
     isComingSoon: false,
   },
   {
@@ -55,7 +64,9 @@ const tools: Tool[] = [
     tags: ["hosting", "deployment", "serverless"],
     price: "Free - Rp. 300.000/month",
     category: "Development",
-    icon: "▲",
+    icon: "https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png",
+    github: "https://github.com/vercel/vercel",
+    website: "https://vercel.com",
     isComingSoon: true,
   },
   {
@@ -65,7 +76,9 @@ const tools: Tool[] = [
     tags: ["project-management", "issues", "roadmap"],
     price: "Free - Rp. 250.000/month",
     category: "Productivity",
-    icon: "📊",
+    icon: "https://linear.app/icons/icon-192x192.png",
+    github: "https://github.com/linear/linear",
+    website: "https://linear.app",
     isComingSoon: true,
   },
   {
@@ -75,7 +88,9 @@ const tools: Tool[] = [
     tags: ["database", "auth", "storage"],
     price: "Free - Rp. 350.000/month",
     category: "Development",
-    icon: "🛢️",
+    icon: "https://supabase.com/favicon.ico",
+    github: "https://github.com/supabase/supabase",
+    website: "https://supabase.com",
     isComingSoon: true,
   },
 ];
@@ -83,7 +98,7 @@ const tools: Tool[] = [
 const Templates = () => {
   return (
     <section className="w-full py-12 bg-primary rounded-b pattern-block relative">
-      <div className="absolute w-full h-full bg-primary-foreground top-0 z-0 glass-bg"></div>
+      <div className="absolute w-full h-full bg-black/60 top-0 z-0"></div>
       <div className="container px-4 mx-auto max-w-5xl z-10 relative ">
         <div className="text-left mb-12 text-white ">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
@@ -110,26 +125,12 @@ const Templates = () => {
               <CardContent>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center justify-center w-12 h-12 bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden">
-                    {tool.icon || (
-                      <div className="text-2xl">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-8 w-8 text-blue-600"
-                        >
-                          <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
-                          <path d="m3.3 7 8.7 5 8.7-5"></path>
-                          <path d="M12 22V12"></path>
-                        </svg>
-                      </div>
-                    )}
+                    <img
+                      src={tool.icon}
+                      alt={tool.name + " logo"}
+                      className="object-contain w-10 h-10"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
                     {tool.category}
@@ -142,7 +143,7 @@ const Templates = () => {
                   </h3>
                   <div className="flex items-center space-x-1.5">
                     <a
-                      href={`https://github.com/username/${tool.name.toLowerCase()}`}
+                      href={tool.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
@@ -165,7 +166,7 @@ const Templates = () => {
                       </svg>
                     </a>
                     <a
-                      href={`https://${tool.name.toLowerCase()}.com`}
+                      href={tool.website}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"

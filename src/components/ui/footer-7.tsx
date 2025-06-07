@@ -157,7 +157,7 @@ export const Footer7 = ({
                   rel="noopener noreferrer"
                 >
                   <span className="sr-only">{social.label}</span>
-                  {React.cloneElement(social.icon, { className: "h-5 w-5" })}
+                  {social.icon}
                 </a>
               ))}
             </div>

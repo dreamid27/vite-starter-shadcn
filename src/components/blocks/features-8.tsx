@@ -36,7 +36,7 @@ export function Features() {
             </Card>
             <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
               <CardContent className="pt-6">
-                <div className="relative mx-auto flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
+                <div className="relative mx-auto flex aspect-square size-32 rounded-full  before:absolute before:-inset-2 ">
                   <img
                     src={IllustrationHttps}
                     width={124}
@@ -56,15 +56,10 @@ export function Features() {
             </Card>
             <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
               <CardContent className="pt-6">
-                <div className="relative mx-auto flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
-                  <img
-                    src={IllustrationFree}
-                    width={124}
-                    height={124}
-                    alt="Free & Affordable Plans"
-                  />
+                <div className="relative mx-auto flex aspect-square size-32 rounded-full  before:absolute before:-inset-2 ">
+                  <img src={IllustrationFree} alt="Free & Affordable Plans" />
                 </div>
-                <div className="relative z-10 mt-14 space-y-2 text-center">
+                <div className="relative z-10 mt-6 space-y-2 text-center">
                   <h2 className="text-lg font-medium transition">
                     Free & Affordable Plans
                   </h2>
@@ -78,9 +73,6 @@ export function Features() {
             <Card className="relative col-span-full overflow-hidden lg:col-span-3">
               <CardContent className="grid pt-6 sm:grid-cols-2">
                 <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
-                  <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
-                    <Shield className="m-auto size-5" strokeWidth={1} />
-                  </div>
                   <div className="space-y-2">
                     <h2 className="group-hover:text-secondary-950 text-lg font-medium text-zinc-800 transition dark:text-white">
                       Container Marketplace
@@ -92,16 +84,13 @@ export function Features() {
                   </div>
                 </div>
                 <div className="rounded-tl-(--radius) relative -mb-6 -mr-6 mt-6 h-fit  p-6 py-6 sm:ml-6">
-                  <img src={IllustrationBox} />
+                  <img src={IllustrationBox} width={180} />
                 </div>
               </CardContent>
             </Card>
             <Card className="relative col-span-full overflow-hidden lg:col-span-3">
               <CardContent className="grid h-full pt-6 sm:grid-cols-2">
                 <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
-                  <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
-                    <Users className="m-auto size-6" strokeWidth={1} />
-                  </div>
                   <div className="space-y-2">
                     <h2 className="text-lg font-medium transition">
                       Custom Domains (Coming Soon)
@@ -114,7 +103,7 @@ export function Features() {
                 </div>
 
                 <div className="relative -mb-6 -mr-6 mt-6 h-fit  p-6 py-6 sm:ml-6">
-                  <img src={IllustrationDomain} />
+                  <img src={IllustrationDomain} width={180} />
                 </div>
               </CardContent>
             </Card>

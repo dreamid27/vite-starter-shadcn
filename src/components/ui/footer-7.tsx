@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import LogoUrl from "@/assets/logo_2.png";
 
 interface Footer7Props {
   logo?: {
@@ -65,7 +66,7 @@ const defaultPartners = [
 export const Footer7 = ({
   logo = {
     url: "/",
-    src: "/src/assets/logo_2.png",
+    src: LogoUrl,
     alt: "SumoPod Logo",
     title: "SumoPod",
   },

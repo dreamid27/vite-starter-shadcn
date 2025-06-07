@@ -87,7 +87,7 @@ export const Footer7 = ({
 
   return (
     <footer className="relative bg-gradient-to-b bg-muted-foreground">
-      <div className="absolute inset-0 bg-[url('https://tailwindui.com/img/component-images/dark-project-example-grid.png')] bg-center opacity-10" />
+      <div className="absolute inset-0 bg-center opacity-10" />
 
       <div className="relative container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {/* Main Content */}
@@ -103,12 +103,12 @@ export const Footer7 = ({
               />
             </a>
 
-            <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto">
+            <p className="text-muted text-sm md:text-base max-w-2xl mx-auto">
               {description}
             </p>
 
             {/* Contact Info */}
-            <div className="flex flex-col space-y-3 text-sm text-gray-400">
+            <div className="flex flex-col space-y-3 text-sm text-muted">
               <div className="flex items-center justify-center space-x-2">
                 <FaEnvelope className="h-4 w-4 text-primary-400" />
                 <a
@@ -119,7 +119,7 @@ export const Footer7 = ({
                 </a>
               </div>
               <div className="flex items-center justify-center space-x-2">
-                <FaPhone className="h-4 w-4 text-primary-400" />
+                <FaPhone className="h-4 w-4 text-muted " />
                 <a
                   href="tel:+6285190052577"
                   className="hover:text-white transition-colors"
@@ -136,7 +136,7 @@ export const Footer7 = ({
                   key={idx}
                   href={social.href}
                   aria-label={social.label}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-muted hover:text-white transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -149,13 +149,13 @@ export const Footer7 = ({
 
           {/* Copyright */}
           <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-            <p className="text-sm text-gray-400">{copyright}</p>
+            <p className="text-sm text-muted">{copyright}</p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
               {legalLinks.map((link, idx) => (
                 <a
                   key={idx}
                   href={link.href}
-                  className="text-xs text-gray-500 hover:text-white transition-colors duration-200"
+                  className="text-xs text-muted hover:text-white transition-colors duration-200"
                 >
                   {link.name}
                 </a>
